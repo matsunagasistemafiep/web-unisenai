@@ -1,9 +1,15 @@
-<mat-form-field>
-    <mat-label>Sua data de nascimento</mat-label>
-    <input matInput [matDatepicker]="picker" [(ngModel)]="dataNasc">
-    <mat-hint>MM/DD/YYYY</mat-hint>
-    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
-</mat-form-field>
+<div class="flex space-x-2">
+    <mat-form-field>
+        <mat-label>Sua data de nascimento</mat-label>
+        <input matInput [matDatepicker]="picker" [(ngModel)]="dataNasc">
+        <mat-hint>
+            <span *ngIf="idade!=null" class="font-bold text-lg">
+                Você tem {{ idade }} anos
+            </span>
+        </mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
 
-<button (click)="enviar()">Enviar</button>
+    <button (click)="enviar()">Enviar</button>
+</div>

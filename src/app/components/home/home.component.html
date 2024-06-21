@@ -4,8 +4,8 @@
 
   <div class="p-4 flex justify-center space-x-2 content-center items-center">
     <mat-form-field>
-      <mat-label>Outline form field</mat-label>
-      <input matInput placeholder="Placeholder" [(ngModel)]="nome">
+      <mat-label>Seu nome</mat-label>
+      <input matInput placeholder="Ex: Fulano de Tal" [(ngModel)]="nome">
       <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
       <mat-hint>Você digitou: {{nome}}</mat-hint>
     </mat-form-field>
@@ -13,7 +13,7 @@
   </div>
 
 
-  <div>
+  <div class="flex justify-center">
     <app-user></app-user>
   </div>
 </div>
