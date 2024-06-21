@@ -13,3 +13,8 @@ Este projeto foi desenvolvido em [Angular CLI](https://github.com/angular/angula
 - Abra o navegador e digite a URL `http://localhost:4200/`. 
 
 A aplicação será atualizada automaticamente quando um arquivo for modificado.
+
+## Docker
+Execuite os comandos
+`docker build -t angular-app`
+`docker run -it -p 4200:4200 -v ${pwd}:/app angular-app`

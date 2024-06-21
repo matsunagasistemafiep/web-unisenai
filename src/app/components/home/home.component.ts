@@ -6,12 +6,13 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {FormsModule} from '@angular/forms';
 import Swal from 'sweetalert2'
+import { UserComponent } from '../user/user.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [MatProgressBarModule, MatFormFieldModule, 
-    MatIconModule, MatInputModule, MatButtonModule, FormsModule],
+    MatIconModule, MatInputModule, MatButtonModule, FormsModule, UserComponent ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
