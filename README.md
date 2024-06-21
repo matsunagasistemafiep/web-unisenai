@@ -7,6 +7,7 @@ Este projeto foi desenvolvido em [Angular CLI](https://github.com/angular/angula
 - Ter o VSCode instalado.
 
 ## Execução
+- Execute o comando `npm install -g @angular/cli` 
 - Execute o comando `npm install`
   - Todos os pacotes e dependências serão instaladas, inclusive o [TailwindCSS](https://tailwindcss.com/docs/guides/angular) e o [Angular Material](https://material.angular.io/guide/getting-started).
 - Após a instalação, execute o comando `npm start`. 
