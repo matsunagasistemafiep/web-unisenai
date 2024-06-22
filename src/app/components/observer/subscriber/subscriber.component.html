@@ -1,0 +1,10 @@
+<div>
+    <p *ngIf="dadosRecebidos.length==0; else recebeu" class="text-red-600 font-semibold">
+        Ainda não recebi nenhum dado.
+    </p>
+    <ng-template #recebeu>
+        <p class="text-green-600 font-bold">
+            Recebi o dado: {{ dadosRecebidos }}
+        </p>
+    </ng-template>
+</div>
