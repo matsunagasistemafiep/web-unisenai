@@ -7,19 +7,30 @@ import {MatButtonModule} from '@angular/material/button';
 import {FormsModule} from '@angular/forms';
 import Swal from 'sweetalert2'
 import { UserComponent } from '../user/user.component';
+import { User } from '../../models/user.model';
+import { CommonModule, DatePipe } from '@angular/common';
+import { MatDividerModule } from '@angular/material/divider';
+import {MatCardModule} from '@angular/material/card';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [MatProgressBarModule, MatFormFieldModule, 
-    MatIconModule, MatInputModule, MatButtonModule, FormsModule, UserComponent ],
+  imports: [CommonModule, MatProgressBarModule, MatFormFieldModule, 
+    MatIconModule, MatInputModule, MatButtonModule, FormsModule, UserComponent,
+  MatDividerModule, MatCardModule, DatePipe ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
   nome: any;
+  listaUsuarios: User[] = [];
   
   submeter(): void {
     Swal.fire('Sucesso', 'Olá, boa noite ' + this.nome, 'success');
+  }
+
+  atualizarLista(user: User) {
+    this.listaUsuarios.push(user);
+    console.info(this.listaUsuarios);
   }
 }

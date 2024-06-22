@@ -4,7 +4,11 @@ export class User {
     email: string;
     pictureUrl?: string;
 
-    constructor(name: string, birthdate: Date, email: string) {
+    constructor(
+        name: string, 
+        birthdate: Date, 
+        email: string
+    ) {
         this.name = name;
         this.birthdate = birthdate;
         this.email = email;

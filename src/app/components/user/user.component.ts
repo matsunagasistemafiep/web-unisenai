@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { User } from '../../models/user.model';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-user',
@@ -25,9 +26,12 @@ import { User } from '../../models/user.model';
 
 })
 export class UserComponent {
+  @Input() name: string = "";
+  @Output() event: EventEmitter<User> = new EventEmitter<User>();
   dataNasc: Date = new Date();
   idade?: number;
   user?: User;
+  email: string = "";
 
   constructor() {
 
@@ -39,8 +43,17 @@ export class UserComponent {
   }
 
   enviar() {
-    this.user = new User('', this.dataNasc, "");
-    console.info(this.user);
+    this.user = new User(this.name, this.dataNasc, this.email);
+    //console.info(this.user);
+    // Envia um evento
+    Swal.fire({
+      title: "Novo usuário",
+      text: `Usuário ${this.user.name} cadastrado com sucesso!`,
+      icon: 'success' 
+    }).then((response) => {
+      this.event.emit(this.user);
+    });
+    
   }
 
 }
