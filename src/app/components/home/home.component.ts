@@ -11,19 +11,25 @@ import { User } from '../../models/user.model';
 import { CommonModule, DatePipe } from '@angular/common';
 import { MatDividerModule } from '@angular/material/divider';
 import {MatCardModule} from '@angular/material/card';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [CommonModule, MatProgressBarModule, MatFormFieldModule, 
     MatIconModule, MatInputModule, MatButtonModule, FormsModule, UserComponent,
-  MatDividerModule, MatCardModule, DatePipe ],
+  MatDividerModule, MatCardModule, DatePipe, MatSidenavModule ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
   nome: any;
   listaUsuarios: User[] = [];
+
+  constructor(private router: Router) {
+
+  }
   
   submeter(): void {
     Swal.fire('Sucesso', 'Olá, boa noite ' + this.nome, 'success');
@@ -32,5 +38,9 @@ export class HomeComponent {
   atualizarLista(user: User) {
     this.listaUsuarios.push(user);
     console.info(this.listaUsuarios);
+  }
+
+  navegarParaPagina() {
+    this.router.navigate(['observer']);
   }
 }
